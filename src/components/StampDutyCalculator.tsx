@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { calculateWBStampDuty } from '../lib/land-math';
+import { calculateWBStampDuty, type DeedType } from '../lib/land-math';
 import { Building2 } from 'lucide-react';
 
 export default function StampDutyCalculator() {
   const [marketValue, setMarketValue] = useState<string>('2500000');
   const [areaType, setAreaType] = useState<'panchayat' | 'municipality'>('municipality');
-  const [isFemaleOwner, setIsFemaleOwner] = useState<boolean>(false);
+  const [deedType, setDeedType] = useState<DeedType>('sale');
 
   const numVal = parseFloat(marketValue) || 0;
-  const result = calculateWBStampDuty(numVal, areaType, isFemaleOwner);
+  const result = calculateWBStampDuty(numVal, areaType, deedType);
 
   return (
     <div className="bg-white rounded-2xl shadow-xl border border-slate-200/80 overflow-hidden">
@@ -95,28 +95,61 @@ export default function StampDutyCalculator() {
             </div>
           </div>
 
-          {/* Female Concession */}
-          <div className="md:col-span-1 bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col justify-between">
+          {/* Deed Type */}
+          <div className="md:col-span-1 bg-slate-50 p-4 rounded-xl border border-slate-200">
             <label className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">
-              মহিলা ক্রেতা সুবিধা (Female Owner Rebate)
+              দলিলের ধরন (Deed Type)
             </label>
-            <label className="flex items-start gap-3 p-3 rounded-lg bg-white border border-slate-200 cursor-pointer hover:border-emerald-300 transition">
-              <input
-                type="checkbox"
-                checked={isFemaleOwner}
-                onChange={(e) => setIsFemaleOwner(e.target.checked)}
-                className="mt-1 text-emerald-600 rounded focus:ring-emerald-500"
-              />
-              <div>
-                <span className="text-sm font-bold text-slate-800 block">
-                  একক বা যৌথ মহিলা ক্রেতা
+            <div className="space-y-2">
+              <label className="flex items-center gap-2 p-2 rounded-lg bg-white border border-slate-200 cursor-pointer hover:border-emerald-300 transition">
+                <input
+                  type="radio"
+                  name="deedType"
+                  value="sale"
+                  checked={deedType === 'sale'}
+                  onChange={() => setDeedType('sale')}
+                  className="text-emerald-600 focus:ring-emerald-500"
+                />
+                <span className="text-sm font-semibold text-slate-700">
+                  বিক্রয় দলিল / সাফ-কবলা (Sale Deed)
                 </span>
-                <span className="text-xs text-emerald-700 font-medium">
-                  ১% স্ট্যাম্প ডিউটি ছাড় প্রযোজ্য
-                </span>
-              </div>
-            </label>
+              </label>
+              <label className="flex items-center gap-2 p-2 rounded-lg bg-white border border-slate-200 cursor-pointer hover:border-emerald-300 transition">
+                <input
+                  type="radio"
+                  name="deedType"
+                  value="gift_family"
+                  checked={deedType === 'gift_family'}
+                  onChange={() => setDeedType('gift_family')}
+                  className="text-emerald-600 focus:ring-emerald-500"
+                />
+                <div>
+                  <span className="text-sm font-semibold text-slate-700 block">
+                    রক্তের সম্পর্কে দানপত্র (Family Gift Deed)
+                  </span>
+                  <span className="text-[11px] text-emerald-700 font-bold">
+                    ০.৫% কনসেশনাল স্ট্যাম্প ডিউটি
+                  </span>
+                </div>
+              </label>
+            </div>
           </div>
+        </div>
+
+        {/* Official Statutory Clarification Note */}
+        <div className="bg-emerald-50/80 border border-emerald-200 p-4 rounded-xl text-xs text-slate-700 space-y-1">
+          <div className="font-bold text-emerald-950 flex items-center gap-1.5">
+            <span>⚖️ পশ্চিমবঙ্গ সরকারের প্রামাণ্য নিয়মাবলী (IGR West Bengal):</span>
+          </div>
+          <p>
+            • <strong>মহিলা ক্রেতা সংক্রান্ত তথ্য:</strong> পশ্চিমবঙ্গে সাধারণ বিক্রয় দলিলের (Sale Deed) ক্ষেত্রে পুরুষ ও মহিলা ক্রেতাদের জন্য স্ট্যাম্প ডিউটি সমান (আলাদা কোনো ছাড় নেই)।
+          </p>
+          <p>
+            • <strong>পারিবারিক দানপত্র ছাড়:</strong> নিকট রক্তের সম্পর্কের আত্মীয়দের (বাবা-মা, সন্তান, স্বামী-স্ত্রী, ভাই-বোন) মধ্যে দানপত্রে রাজ্য সরকার <strong>০.৫%</strong> বিশেষ কনসেশনাল স্ট্যাম্প ডিউটি প্রদান করে।
+          </p>
+          <p>
+            • <strong>হাই-ভ্যালু সারচার্জ:</strong> বাজারমূল্য ১ কোটি টাকার অধিক হলে মূল হারের ওপর অতিরিক্ত ১% স্ট্যাম্প ডিউটি প্রযোজ্য হয়।
+          </p>
         </div>
 
         {/* Results Overview */}

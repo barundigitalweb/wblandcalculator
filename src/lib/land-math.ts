@@ -256,74 +256,94 @@ export function calculateHeronPlot(
 /**
  * West Bengal Property Registration & Stamp Duty Estimator
  *
- * Applicable Standard Rates in West Bengal:
- * - Panchayat Area (Rural): 5% Stamp Duty + 1% Registration Fee = 6% Total
- * - Municipality / Corporation (Urban): 6% Stamp Duty + 1% Registration Fee = 7% Total
- * - If Market Value > ₹1 Crore: +1% additional Stamp Duty applies.
- * - Women Owner Concession: 1% rebate on Stamp Duty if sole/joint female buyer.
+ * Official Standards (Directorate of Registration and Stamp Revenue, Govt. of West Bengal):
+ * - Sale Deed (সাফ-কবলা / বিক্রয় দলিল):
+ *   - Panchayat Area (Rural): 5% Stamp Duty (up to ₹1 Crore), 6% (above ₹1 Crore)
+ *   - Municipality / Corporation (Urban): 6% Stamp Duty (up to ₹1 Crore), 7% (above ₹1 Crore)
+ * - Registration Fee: 1% uniform across West Bengal
+ * - Family Gift Deed (রক্তের সম্পর্কে দানপত্র): 0.5% Concessional Stamp Duty
+ * - Note: West Bengal has NO gender-based rebate for female buyers on sale deeds.
+ * - Temporary Covid rebate (2% stamp duty + 10% circle rate) expired on June 30, 2024.
  */
+export type DeedType = 'sale' | 'gift_family';
+
 export interface StampDutyResult {
   marketValue: number;
+  deedType: DeedType;
+  areaType: 'panchayat' | 'municipality';
   stampDutyRate: number;
   stampDutyAmount: number;
   registrationFeeRate: number;
   registrationFeeAmount: number;
   mutationFeeEstimate: number;
   totalGovernmentCharges: number;
-  femaleConcessionApplied: boolean;
   highValueSurchargeApplied: boolean;
+  notes: string[];
 }
 
 export function calculateWBStampDuty(
   marketValue: number,
-  areaType: 'panchayat' | 'municipality',
-  isFemaleOwner: boolean
+  areaType: 'panchayat' | 'municipality' = 'municipality',
+  deedType: DeedType = 'sale'
 ): StampDutyResult {
   if (marketValue <= 0 || isNaN(marketValue)) {
     return {
       marketValue: 0,
+      deedType,
+      areaType,
       stampDutyRate: 0,
       stampDutyAmount: 0,
       registrationFeeRate: 0,
       registrationFeeAmount: 0,
       mutationFeeEstimate: 0,
       totalGovernmentCharges: 0,
-      femaleConcessionApplied: false,
-      highValueSurchargeApplied: false
+      highValueSurchargeApplied: false,
+      notes: []
     };
   }
 
-  // Base rate
-  let baseStampRate = areaType === 'panchayat' ? 5 : 6;
-  const highValueSurcharge = marketValue > 10000000; // > 1 Crore
+  const notes: string[] = [];
+  const highValueSurcharge = marketValue > 10000000; // Strictly > 1 Crore
 
-  if (highValueSurcharge) {
-    baseStampRate += 1;
-  }
-
-  let femaleDiscount = false;
-  if (isFemaleOwner) {
-    baseStampRate -= 1;
-    femaleDiscount = true;
-  }
-
+  let stampDutyRate = 0;
   const registrationFeeRate = 1; // 1% across WB
-  const stampDutyAmount = Math.round((marketValue * baseStampRate) / 100);
+
+  if (deedType === 'gift_family') {
+    // Gift Deed among immediate blood relatives (spouse, parents, children, siblings)
+    stampDutyRate = 0.5;
+    notes.push('পারিবারিক রক্তের সম্পর্কের দানপত্র (Family Gift Deed) অনুযায়ী ০.৫% ছাড়যুক্ত স্ট্যাম্প ডিউটি প্রযোজ্য।');
+  } else {
+    // Standard Sale Deed (সাফ-কবলা / বিক্রয় দলিল)
+    if (areaType === 'panchayat') {
+      stampDutyRate = highValueSurcharge ? 6 : 5;
+    } else {
+      // Municipality / Municipal Corporation (KMC, HMC, BMC, etc.)
+      stampDutyRate = highValueSurcharge ? 7 : 6;
+    }
+
+    if (highValueSurcharge) {
+      notes.push('বাজারমূল্য ১ কোটি টাকার বেশি হওয়ায় ১% অতিরিক্ত হাই-ভ্যালু সারচার্জ যুক্ত হয়েছে।');
+    }
+  }
+
+  const stampDutyAmount = Math.round((marketValue * stampDutyRate) / 100);
   const registrationFeeAmount = Math.round((marketValue * registrationFeeRate) / 100);
 
-  // Approximate mutation and processing fee estimate
+  // Approximate online e-assessment processing and mutation fee estimate
   const mutationFeeEstimate = marketValue < 1000000 ? 500 : marketValue < 5000000 ? 1500 : 3000;
   const totalGovernmentCharges = stampDutyAmount + registrationFeeAmount + mutationFeeEstimate;
 
   return {
     marketValue,
-    stampDutyRate: baseStampRate,
+    deedType,
+    areaType,
+    stampDutyRate,
     stampDutyAmount,
     registrationFeeRate,
     registrationFeeAmount,
     mutationFeeEstimate,
     totalGovernmentCharges,
-    femaleConcessionApplied: femaleDiscount,
-    highValueSurchargeApplied: highValueSurcharge
+    highValueSurchargeApplied: highValueSurcharge,
+    notes
   };
 }
