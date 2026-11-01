@@ -12,5 +12,18 @@ export default defineConfig({
   compressHTML: true,
   build: {
     inlineStylesheets: 'auto'
+  },
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('lucide-react')) {
+              return 'vendor-icons';
+            }
+          }
+        }
+      }
+    }
   }
 });
