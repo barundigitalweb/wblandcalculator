@@ -45,20 +45,20 @@ export default function IrregularPlotCalculator() {
     const p3 = { x: width - padding - 40, y: height - padding }; // Bottom Right (South-East)
     const p4 = { x: padding, y: height - padding - 20 }; // Bottom Left (South-West)
 
-    // Fill Triangle 1 (p1, p2, p4) - Top/Left Triangle
+    // Fill Triangle 1 (p1, p2, p3) - North, East & Diagonal
     ctx.beginPath();
     ctx.moveTo(p1.x, p1.y);
     ctx.lineTo(p2.x, p2.y);
-    ctx.lineTo(p4.x, p4.y);
+    ctx.lineTo(p3.x, p3.y);
     ctx.closePath();
     ctx.fillStyle = 'rgba(16, 185, 129, 0.15)'; // Emerald 500 light
     ctx.fill();
 
-    // Fill Triangle 2 (p2, p3, p4) - Bottom/Right Triangle
+    // Fill Triangle 2 (p3, p4, p1) - South, West & Diagonal
     ctx.beginPath();
-    ctx.moveTo(p2.x, p2.y);
-    ctx.lineTo(p3.x, p3.y);
+    ctx.moveTo(p3.x, p3.y);
     ctx.lineTo(p4.x, p4.y);
+    ctx.lineTo(p1.x, p1.y);
     ctx.closePath();
     ctx.fillStyle = 'rgba(13, 148, 136, 0.15)'; // Teal 600 light
     ctx.fill();
@@ -74,11 +74,11 @@ export default function IrregularPlotCalculator() {
     ctx.lineWidth = 3;
     ctx.stroke();
 
-    // Draw Diagonal (p2 to p4)
+    // Draw Diagonal (p1 to p3: NW to SE)
     ctx.beginPath();
     ctx.setLineDash([6, 6]);
-    ctx.moveTo(p2.x, p2.y);
-    ctx.lineTo(p4.x, p4.y);
+    ctx.moveTo(p1.x, p1.y);
+    ctx.lineTo(p3.x, p3.y);
     ctx.strokeStyle = '#d97706'; // Amber 600
     ctx.lineWidth = 2.5;
     ctx.stroke();
@@ -111,7 +111,7 @@ export default function IrregularPlotCalculator() {
 
     // Diagonal Label
     ctx.fillStyle = '#b45309';
-    ctx.fillText(`কর্ণ: ${valDiag} ft`, (p2.x + p4.x) / 2, (p2.y + p4.y) / 2 - 10);
+    ctx.fillText(`কর্ণ: ${valDiag} ft`, (p1.x + p3.x) / 2 + 20, (p1.y + p3.y) / 2 - 10);
   }, [valA, valB, valC, valD, valDiag, result.isValid]);
 
   return (
@@ -226,7 +226,7 @@ export default function IrregularPlotCalculator() {
             {/* Diagonal E */}
             <div className="bg-amber-50 p-4 rounded-xl border-2 border-amber-300">
               <label className="block text-xs font-bold text-amber-900 mb-1">
-                কোনাকুনি কর্ণ (Diagonal)
+                কোনাকুনি কর্ণ (NW ↔ SE Diagonal)
               </label>
               <div className="flex items-center gap-1">
                 <input
@@ -263,7 +263,7 @@ export default function IrregularPlotCalculator() {
               className="w-full max-w-[380px] bg-white rounded-xl shadow-inner border border-slate-200"
             />
             <p className="text-[11px] text-slate-500 text-center mt-2">
-              * হলুদ ড্যাশ লাইনটি হলো কোনাকুনি কর্ণ, যা জমিকে ২টি ত্রিভুজে বিভক্ত করেছে।
+              * হলুদ ড্যাশ লাইনটি হলো কোনাকুনি কর্ণ (উত্তর-পশ্চিম থেকে দক্ষিণ-পূর্ব কোণ), যা জমিকে ২টি ত্রিভুজে বিভক্ত করেছে।
             </p>
           </div>
 
