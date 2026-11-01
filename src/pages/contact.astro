@@ -45,11 +45,12 @@ import { Mail, MessageSquare, Clock } from 'lucide-react';
         </div>
       </div>
 
-      <form class="space-y-4" onsubmit="event.preventDefault(); alert('ধন্যবাদ! আপনার বার্তাটি গৃহীত হয়েছে।');">
+      <form class="space-y-4" id="contact-form">
         <div>
           <label class="block text-xs font-bold text-slate-600 uppercase mb-1">আপনার নাম (Your Name)</label>
           <input
             type="text"
+            id="contact-name"
             required
             placeholder="আপনার পূর্ণ নাম..."
             class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:border-emerald-600 outline-none"
@@ -60,8 +61,9 @@ import { Mail, MessageSquare, Clock } from 'lucide-react';
           <label class="block text-xs font-bold text-slate-600 uppercase mb-1">ইমেইল ঠিকানা (Email Address)</label>
           <input
             type="email"
+            id="contact-email"
             required
-            placeholder="name@example.com"
+            placeholder="আপনার ইমেইল ঠিকানা লিখুন..."
             class="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm focus:border-emerald-600 outline-none"
           />
         </div>
@@ -69,6 +71,7 @@ import { Mail, MessageSquare, Clock } from 'lucide-react';
         <div>
           <label class="block text-xs font-bold text-slate-600 uppercase mb-1">বার্তা বা পরামর্শ (Message)</label>
           <textarea
+            id="contact-message"
             rows="4"
             required
             placeholder="আপনার বার্তা বা পরামর্শ এখানে বিস্তারিত লিখুন..."
@@ -78,11 +81,28 @@ import { Mail, MessageSquare, Clock } from 'lucide-react';
 
         <button
           type="submit"
-          class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 rounded-xl transition shadow-md"
+          class="w-full bg-emerald-700 hover:bg-emerald-800 text-white font-bold py-3 rounded-xl transition shadow-md flex items-center justify-center gap-2"
         >
-          বার্তা পাঠান (Send Message)
+          <Mail class="w-4 h-4" />
+          <span>বার্তা পাঠান (Send Message via Email)</span>
         </button>
       </form>
+
+      <script is:inline>
+        document.getElementById('contact-form')?.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const name = document.getElementById('contact-name')?.value || '';
+          const email = document.getElementById('contact-email')?.value || '';
+          const message = document.getElementById('contact-message')?.value || '';
+
+          const subject = encodeURIComponent('WBLandCalculator Contact: ' + name);
+          const body = encodeURIComponent(
+            'নাম: ' + name + '\nইমেইল: ' + email + '\n\nবার্তা:\n' + message
+          );
+
+          window.location.href = 'mailto:contact@wblandcalculator.com?subject=' + subject + '&body=' + body;
+        });
+      </script>
     </div>
   </div>
 </Layout>

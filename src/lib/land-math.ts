@@ -187,6 +187,21 @@ export function calculateHeronPlot(
   sideD: number,
   diagonalE: number
 ): IrregularPlotResult {
+  // Check for non-positive or missing inputs
+  if (sideA <= 0 || sideB <= 0 || sideC <= 0 || sideD <= 0 || diagonalE <= 0) {
+    return {
+      isValid: false,
+      errorMessage: 'অনুগ্রহ করে ৪টি বাহু এবং কর্ণের সঠিক ধনাত্মক মাপ লিখুন (সব মান ০-এর বেশি হতে হবে)।',
+      triangle1AreaSqFt: 0,
+      triangle2AreaSqFt: 0,
+      totalAreaSqFt: 0,
+      averageMethodAreaSqFt: 0,
+      differenceSqFt: 0,
+      errorPercentage: 0,
+      breakdown: getFractionalBreakdown(0)
+    };
+  }
+
   // Triangle 1: a, b, e
   // Triangle inequality check
   if (

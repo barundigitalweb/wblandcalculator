@@ -86,7 +86,11 @@ export default function FractionalBreakdown() {
             {breakdown.formattedBengali}
           </div>
 
-          <div className="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-emerald-200 text-center">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-4 pt-4 border-t border-emerald-200 text-center">
+            <div className="bg-white p-2 rounded-xl border border-emerald-100">
+              <span className="text-[11px] text-slate-500 block">বিঘা (Bigha)</span>
+              <span className="text-lg font-black text-slate-800">{breakdown.bigha}</span>
+            </div>
             <div className="bg-white p-2 rounded-xl border border-emerald-100">
               <span className="text-[11px] text-slate-500 block">কাঠা (Katha)</span>
               <span className="text-lg font-black text-slate-800">{breakdown.katha}</span>
