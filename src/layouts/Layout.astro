@@ -1,0 +1,97 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  keywords?: string;
+}
+
+const {
+  title = 'West Bengal Land & Amin Calculator | ১ কাঠা = ৭২০ বর্গফুট, শতক, বিঘা পরিমাপ',
+  description = '১০০% সঠিক পশ্চিমবঙ্গ ভূমি পরিমাপক টুল। কাঠা থেকে স্কয়ার ফিট (১ কাঠা = ৭২০ sq ft), শতক থেকে কাঠা, বিঘা, ছটাক এবং আমিনদের জন্য আঁকাবাঁকা জমির বিষমবাহু হিরন ফর্মুলা ক্যালকুলেটর।',
+  canonical = Astro.url.href,
+  keywords = 'wb land calculator, west bengal land calculator, 1 katha in sq ft west bengal, 1 satak to katha, katha to sq ft calculator, amin calculator west bengal, irregular land calculator, jomi porimap calculator, bigha to katha west bengal'
+} = Astro.props;
+
+const siteUrl = 'https://wblandcalculator.com';
+
+const schemaData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}/#website`,
+      'url': siteUrl,
+      'name': 'WBLandCalculator.com',
+      'description': description,
+      'inLanguage': ['bn-IN', 'en-IN']
+    },
+    {
+      '@type': 'WebApplication',
+      '@id': `${siteUrl}/#app`,
+      'name': 'West Bengal Land & Amin Area Calculator',
+      'url': siteUrl,
+      'applicationCategory': 'UtilitiesApplication',
+      'operatingSystem': 'All',
+      'browserRequirements': 'Requires JavaScript',
+      'offers': {
+        '@type': 'Offer',
+        'price': '0',
+        'priceCurrency': 'INR'
+      }
+    }
+  ]
+};
+---
+
+<!doctype html>
+<html lang="bn" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="WBLandCalculator.com" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Theme & Icons -->
+    <meta name="theme-color" content="#047857" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+    <style is:global>
+      body {
+        font-family: 'Inter', 'Noto Sans Bengali', system-ui, -apple-system, sans-serif;
+      }
+    </style>
+
+    <!-- Structured Data Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+  </head>
+  <body class="bg-slate-100/70 text-slate-900 min-h-screen flex flex-col antialiased selection:bg-emerald-600 selection:text-white">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

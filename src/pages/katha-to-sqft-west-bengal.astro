@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MultiUnitConverter from '../components/MultiUnitConverter';
+import FractionalBreakdown from '../components/FractionalBreakdown';
+import WhyWestBengalSection from '../components/WhyWestBengalSection.astro';
+import ConversionTable from '../components/ConversionTable.astro';
+import FaqSection from '../components/FaqSection.astro';
+---
+
+<Layout
+  title="1 Katha in Sq Ft in West Bengal | ১ কাঠা = কত স্কয়ার ফিট ক্যালকুলেটর"
+  description="পশ্চিমবঙ্গে ১ কাঠা সমান ৭২০ স্কয়ার ফিট (1 Katha = 720 Sq Ft)। অনলাইনে যে কোনো কাঠা থেকে স্কয়ার ফিট বা বর্গফুট থেকে কাঠার সঠিক সরকারি রূপান্তর ক্যালকুলেটর।"
+  keywords="1 katha in sq ft in west bengal, 1 katha to sqft, katha to square feet west bengal, 1 katha koto square feet, wb katha calculator"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+    <div class="text-center max-w-3xl mx-auto space-y-3">
+      <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">
+        পশ্চিমবঙ্গ স্ট্যান্ডার্ড রূপান্তর
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">
+        পশ্চিমবঙ্গে ১ কাঠা = <span class="text-emerald-700">৭২০ স্কয়ার ফিট</span>
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+        নিচের ঘরে কাঠা বা স্কয়ার ফিটের মান লিখুন—মুহূর্তের মধ্যে সঠিক সরকারি রূপান্তর এবং দলিল অনুযায়ী কাঠা-ছটাকের ভাঙানি পেয়ে যান।
+      </p>
+    </div>
+
+    {/* Featured Converter with Katha Preset */}
+    <MultiUnitConverter client:load initialUnit="katha" initialValue={1} featuredTitle="কাঠা থেকে স্কয়ার ফিট কনভার্টার (Katha to Sq Ft)" />
+
+    {/* Fact Check: Why 720 not 2880 */}
+    <WhyWestBengalSection />
+
+    {/* Fractional breakdown */}
+    <FractionalBreakdown client:visible />
+
+    {/* In-depth content for this exact keyword */}
+    <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-md space-y-6">
+      <h2 class="text-2xl font-black text-slate-800">
+        কাঠা থেকে স্কয়ার ফিট হিসাব করার সহজ ফর্মুলা (West Bengal Formula)
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-700">
+        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+          <h3 class="font-bold text-slate-900 text-base">১. কাঠা থেকে স্কয়ার ফিট (Katha to Sq Ft):</h3>
+          <p>কাঠার সংখ্যাকে <strong>৭২০</strong> দিয়ে গুণ করতে হবে।</p>
+          <div class="p-2.5 bg-emerald-100/70 text-emerald-950 font-mono font-bold rounded-lg">
+            বর্গফুট = কাঠা × ৭২০
+          </div>
+          <p class="text-xs text-slate-500">উদাহরণ: ৩ কাঠা = ৩ × ৭২০ = ২,১৬০ বর্গফুট।</p>
+        </div>
+
+        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+          <h3 class="font-bold text-slate-900 text-base">২. স্কয়ার ফিট থেকে কাঠা (Sq Ft to Katha):</h3>
+          <p>বর্গফুটের সংখ্যাকে <strong>৭২০</strong> দিয়ে ভাগ করতে হবে।</p>
+          <div class="p-2.5 bg-emerald-100/70 text-emerald-950 font-mono font-bold rounded-lg">
+            কাঠা = বর্গফুট ÷ ৭২০
+          </div>
+          <p class="text-xs text-slate-500">উদাহরণ: ৩,৬০০ বর্গফুট = ৩,৬০০ ÷ ৭২০ = ৫ কাঠা।</p>
+        </div>
+      </div>
+    </section>
+
+    <ConversionTable />
+    <FaqSection />
+  </div>
+</Layout>

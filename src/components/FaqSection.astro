@@ -1,0 +1,74 @@
+---
+// Comprehensive FAQ Section with JSON-LD Schema
+const faqs = [
+  {
+    q: 'পশ্চিমবঙ্গে ১ কাঠা সমান কত বর্গফুট (1 Katha in Sq Ft in West Bengal)?',
+    a: 'পশ্চিমবঙ্গে প্রামাণ্য সরকারি নিয়ম অনুযায়ী ১ কাঠা সমান ৭২০ বর্গফুট (720 Square Feet)। ১ কাঠা সমান ১৬ ছটাক এবং প্রতিটি ছটাক ৪৫ বর্গফুট।'
+  },
+  {
+    q: '১ শতক বা ডেসিমেলে কত কাঠা হয় (1 Satak to Katha)?',
+    a: 'পশ্চিমবঙ্গে ১ শতক বা ডেসিমেল সমান ০.৬০৫ কাঠা (প্রায় ৯.৬৮ ছটাক বা ৪৩৫.৬ বর্গফুট)। আবার উল্টোভাবে ১ কাঠা সমান প্রায় ১.৬৫২৮ শতক।'
+  },
+  {
+    q: '১ বিঘা সমান কত কাঠা ও কত বর্গফুট?',
+    a: 'পশ্চিমবঙ্গে ১ বিঘা সমান ২০ কাঠা। বর্গফুট হিসেবে ১ বিঘা সমান ১৪,৪০০ বর্গফুট (14,400 Sq Ft) বা প্রায় ৩৩.০৫৭ শতক।'
+  },
+  {
+    q: 'আঁকাবাঁকা বা বিষমবাহু জমি মাপার সঠিক পদ্ধতি কী?',
+    a: 'আঁকাবাঁকা ৪ কোনা জমি মাপার একমাত্র বৈজ্ঞানিক ও নির্ভুল পদ্ধতি হলো হিরন ফর্মুলা (Heron\'s Formula)। জমিতে কোনাকুনি একটি কর্ণ মেপে জমিটিকে দুটি ত্রিভুজে ভাগ করে ক্ষেত্রফল বের করতে হয়। সাধারণ গড় পদ্ধতিতে মাপলে ৫% থেকে ১০% পর্যন্ত ভুলের ঝুঁকি থাকে।'
+  },
+  {
+    q: 'পশ্চিমবঙ্গে জমি বা ফ্ল্যাট রেজিস্ট্রির মোট সরকারি খরচ কত?',
+    a: 'গ্রাম পঞ্চায়েত এলাকায় সাধারণ স্ট্যাম্প ডিউটি ৫% এবং রেজিস্ট্রেশন ফি ১% (মোট ৬%)। মিউনিসিপ্যালিটি বা কর্পোরেশন এলাকায় স্ট্যাম্প ডিউটি ৬% এবং রেজিস্ট্রেশন ফি ১% (মোট ৭%)। মহিলা ক্রেতা হলে স্ট্যাম্প ডিউটিতে ১% সরকারি ছাড় পাওয়া যায়।'
+  },
+  {
+    q: '১ একরে কত শতক এবং কত বিঘা?',
+    a: '১ একর সমান ঠিক ১০০ শতক বা ৪৩,৫৬০ বর্গফুট। বিঘা হিসেবে ১ একর সমান ৩ বিঘা ০ কাঠা ৮ ছটাক (বা ৬০.৫ কাঠা)।'
+  }
+];
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  'mainEntity': faqs.map(f => ({
+    '@type': 'Question',
+    'name': f.q,
+    'acceptedAnswer': {
+      '@type': 'Answer',
+      'text': f.a
+    }
+  }))
+};
+---
+
+<section class="bg-white rounded-2xl shadow-lg border border-slate-200/80 p-6 sm:p-8">
+  <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+
+  <div class="max-w-2xl mx-auto text-center mb-8">
+    <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full uppercase tracking-wider">
+      সাধারণ প্রশ্নোত্তর
+    </span>
+    <h3 class="text-2xl sm:text-3xl font-black text-slate-800 mt-2">
+      জমি পরিমাপ সম্পর্কিত প্রায়শই জিজ্ঞাসিত প্রশ্ন (FAQ)
+    </h3>
+    <p class="text-slate-500 text-sm mt-1">
+      পশ্চিমবঙ্গের ভূমি পরিমাপ ও রেজিস্ট্রি সংক্রান্ত জরুরি তথ্যাদি
+    </p>
+  </div>
+
+  <div class="space-y-4 max-w-3xl mx-auto">
+    {faqs.map((faq, i) => (
+      <details class="group bg-slate-50 rounded-xl border border-slate-200 p-4 transition-all duration-200 open:bg-emerald-50/50 open:border-emerald-300">
+        <summary class="font-bold text-slate-800 flex items-center justify-between cursor-pointer list-none text-base select-none">
+          <span>{i + 1}. {faq.q}</span>
+          <span class="text-emerald-700 font-bold ml-2 transition-transform duration-200 group-open:rotate-180">
+            ▼
+          </span>
+        </summary>
+        <p class="mt-3 text-slate-600 text-sm leading-relaxed border-t border-slate-200/60 pt-3">
+          {faq.a}
+        </p>
+      </details>
+    ))}
+  </div>
+</section>

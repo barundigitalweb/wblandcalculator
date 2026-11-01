@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Target, ShieldCheck, Award, Heart } from 'lucide-react';
+---
+
+<Layout
+  title="আমাদের সম্পর্কে (About Us) | WBLandCalculator.com"
+  description="WBLandCalculator.com সম্পর্কে জানুন। পশ্চিমবঙ্গের আমিন, দলিল লেখক ও সাধারণ মানুষের জন্য ১০০% সঠিক ভূমি পরিমাপক টুল তৈরির উদ্দেশ্য।"
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+    <div class="text-center space-y-3">
+      <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full uppercase">
+        আমাদের পরিচিতি
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+        WBLandCalculator.com সম্পর্কে
+      </h1>
+      <p class="text-slate-600 text-base max-w-2xl mx-auto">
+        পশ্চিমবঙ্গের ভূমি পরিমাপ ও রেকর্ডের জটিলতাকে দূর করে সবার কাছে সহজ ও নির্ভুল ডিজিটাল সমাধান পৌঁছে দেওয়াই আমাদের লক্ষ্য।
+      </p>
+    </div>
+
+    <div class="bg-white rounded-2xl p-6 sm:p-10 border border-slate-200/80 shadow-md space-y-8 text-slate-700 text-sm sm:text-base leading-relaxed">
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <Target class="w-5 h-5 text-emerald-600" />
+          <span>আমাদের উদ্দেশ্য (Our Mission)</span>
+        </h2>
+        <p>
+          ইন্টারনেটে অধিকাংশ জাতীয় স্তরের ওয়েবসাইট ও রিয়েল এস্টেট পোর্টাল পশ্চিমবঙ্গের স্থানীয় ভূমি পরিমাপের ক্ষেত্রে ভুল তথ্য প্রদর্শন করে (যেমন আসামের ১ কাঠা = ২৮৮০ বর্গফুট বসিয়ে দেওয়া)। এর ফলে জমি কেনার সময় সাধারণ মানুষ, নতুন দলিল লেখক এবং আমিনরা বিভ্রান্তির শিকার হন।
+        </p>
+        <p>
+          <strong>WBLandCalculator.com</strong> একটি সম্পূর্ণ স্বাধীন ও বিনামূল্যে ব্যবহারযোগ্য ডিজিটাল প্ল্যাটফর্ম। আমাদের একমাত্র লক্ষ্য হলো পশ্চিমবঙ্গ ভূমি সংস্কার আইন (WB Land Reforms Act, 1955) এবং সরকারি রাজস্ব নিয়মের সাথে ১০০% সামঞ্জস্য রেখে একটি নির্ভরযোগ্য গাণিতিক টুলবক্স তৈরি করা।
+        </p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <Award class="w-5 h-5 text-emerald-600" />
+          <span>আমরা যেসকল সেবা দিই</span>
+        </h2>
+        <ul class="list-disc pl-5 space-y-2 text-slate-600">
+          <li><strong>নির্ভুল একক রূপান্তর:</strong> শতক, কাঠা, ছটাক, বিঘা, একর, এবং আন্তর্জাতিক বর্গফুট ও বর্গমিটারের তাৎক্ষণিক সঠিক হিসাব।</li>
+          <li><strong>দলিল ভাঙানি ক্যালকুলেটর:</strong> যেকোনো মোট বর্গফুটকে এক নিমিষে কত কাঠা, কত ছটাক ও কত অবশিষ্ট বর্গফুট—তাতে নিখুঁতভাবে ভেঙে দেওয়া।</li>
+          <li><strong>বিষমবাহু চতুর্ভুজাকার জমির মাপ (Heron's Formula):</strong> সাধারণ গড় পদ্ধতির ভুল এড়াতে আমিনদের ব্যবহৃত দুটি ত্রিভুজে বিভক্ত বৈজ্ঞানিক পরিমাপক।</li>
+          <li><strong>রেজিস্ট্রি ফি ও স্ট্যাম্প ডিউটি এস্টিমেটর:</strong> পশ্চিমবঙ্গ সরকারের আইজিআর নিয়ম অনুযায়ী জমি ও ফ্ল্যাট রেজিস্ট্রির আনুমানিক খরচ হিসাব।</li>
+        </ul>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+          <ShieldCheck class="w-5 h-5 text-emerald-600" />
+          <span>গোপনীয়তা ও স্বাধীনতা</span>
+        </h2>
+        <p>
+          আমাদের সমস্ত গাণিতিক হিসাব আপনার নিজের ডিভাইসে (Client-Side) সরাসরি ব্রাউজারে সম্পন্ন হয়। আপনার দেওয়া কোনো জমির মাপ বা সংখ্যা আমাদের কোনো সার্ভারে সেভ বা ট্র্যাক করা হয় না।
+        </p>
+      </section>
+    </div>
+  </div>
+</Layout>

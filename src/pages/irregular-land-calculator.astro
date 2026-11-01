@@ -1,0 +1,59 @@
+---
+import Layout from '../layouts/Layout.astro';
+import IrregularPlotCalculator from '../components/IrregularPlotCalculator';
+import FractionalBreakdown from '../components/FractionalBreakdown';
+import FaqSection from '../components/FaqSection.astro';
+---
+
+<Layout
+  title="আঁকাবাঁকা ও বিষমবাহু জমির পরিমাপক | Heron's Formula Land Calculator"
+  description="আমিন ও সার্ভেয়ারদের জন্য ৪ বাহুর আঁকাবাঁকা ও বিষমবাহু জমির নিখুঁত ক্ষেত্রফল পরিমাপক। কোনাকুনি কর্ণ ও হিরন ফর্মুলা দিয়ে স্কয়ার ফিট, কাঠা ও শতকের ১০০% সঠিক হিসাব।"
+  keywords="irregular land calculator, herons formula land calculator, amin calculator west bengal, 4 side land area calculator, আঁকাবাঁকা জমির পরিমাপ, বিষমবাহু জমির পরিমাপ"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+    <div class="text-center max-w-3xl mx-auto space-y-3">
+      <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">
+        আমিন ও সার্ভেয়ার স্পেশাল টুল
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">
+        আঁকাবাঁকা জমির মাপক (<span class="text-emerald-700">হিরন ফর্মুলা</span>)
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+        ৪টি বাহু এবং কোনাকুনি কর্ণের মাপ লিখুন—টুলটি জমিকে ২টি ত্রিভুজে ভাগ করে নিখুঁত ক্ষেত্রফল এবং ভিজ্যুয়াল ম্যাপ এঁকে দেবে।
+      </p>
+    </div>
+
+    {/* The Interactive Irregular Plot Calculator */}
+    <IrregularPlotCalculator client:load />
+
+    {/* Fractional breakdown */}
+    <FractionalBreakdown client:visible />
+
+    {/* Educational Guide for Amin / Surveying */}
+    <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-md space-y-6">
+      <h2 class="text-2xl font-black text-slate-800">
+        হিরন ফর্মুলা (Heron's Formula) দিয়ে জমি মাপার নিয়ম ও গাণিতিক সূত্র
+      </h2>
+      <div class="prose prose-slate max-w-none text-slate-700 text-sm leading-relaxed space-y-3">
+        <p>
+          গ্রিক গণিতবিদ হিরন (Heron of Alexandria)-এর সূত্র অনুযায়ী যেকোনো ত্রিভুজের ৩টি বাহু $a$, $b$, এবং $c$ জানা থাকলে তার ক্ষেত্রফল বের করা যায়:
+        </p>
+        <div class="p-3 bg-slate-100 font-mono text-center rounded-xl font-bold text-slate-800">
+          Area = √[s(s - a)(s - b)(s - c)]
+        </div>
+        <p>
+          এখানে $s$ হলো অর্ধ-পরিসীমা (Semi-perimeter), অর্থাৎ: $s = (a + b + c) \div 2$।
+        </p>
+        <h3 class="text-lg font-bold text-slate-900 mt-4">আমিনরা কীভাবে জমি মাপেন?</h3>
+        <ol class="list-decimal pl-5 space-y-2">
+          <li>প্রথমে জমির ৪টি সীমানা ফিতে দিয়ে মেপে নেন (উত্তর, দক্ষিণ, পূর্ব, পশ্চিম)।</li>
+          <li>এরপর যেকোনো একটি কোণা থেকে বিপরীত কোণা পর্যন্ত কোনাকুনি একটি ফিতে টানেন (যাকে বলা হয় কর্ণ বা Diagonal)।</li>
+          <li>এই কর্ণের মাধ্যমে জমিটি দুটি ত্রিভুজে ভাগ হয়ে যায়।</li>
+          <li>উভয় ত্রিভুজে আলাদাভাবে হিরন ফর্মুলা প্রয়োগ করে দুই ক্ষেত্রফল যোগ করলেই জমির ১০০% নির্ভুল ক্ষেত্রফল পাওয়া যায়।</li>
+        </ol>
+      </div>
+    </section>
+
+    <FaqSection />
+  </div>
+</Layout>

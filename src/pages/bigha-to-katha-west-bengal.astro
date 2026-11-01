@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MultiUnitConverter from '../components/MultiUnitConverter';
+import ConversionTable from '../components/ConversionTable.astro';
+import FaqSection from '../components/FaqSection.astro';
+---
+
+<Layout
+  title="1 Bigha in Katha in West Bengal | ১ বিঘা = কত কাঠা ও বর্গফুট?"
+  description="পশ্চিমবঙ্গে ১ বিঘা সমান ২০ কাঠা এবং ১৪,৪০০ বর্গফুট (1 Bigha = 20 Katha = 14,400 Sq Ft)। অনলাইন বিঘা থেকে কাঠা, শতক ও স্কয়ার ফিট ক্যালকুলেটর।"
+  keywords="1 bigha in katha in west bengal, 1 bigha koto katha, bigha to sq ft west bengal, bigha to katha converter, 1 bigha koto satak"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+    <div class="text-center max-w-3xl mx-auto space-y-3">
+      <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">
+        পশ্চিমবঙ্গ বিঘা পরিমাপ
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">
+        ১ বিঘা = <span class="text-emerald-700">২০ কাঠা</span> (১৪,৪০০ বর্গফুট)
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+        পশ্চিমবঙ্গে ১ বিঘা সমান ২০ কাঠা, ৩২০ ছটাক বা ৩৩.০৫৭ শতক। যে কোনো বিঘা বা কাঠার পরিমাণ সহজেই রূপান্তর করুন।
+      </p>
+    </div>
+
+    <MultiUnitConverter client:load initialUnit="bigha" initialValue={1} featuredTitle="বিঘা থেকে কাঠা ও বর্গফুট কনভার্টার (Bigha Converter)" />
+
+    <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-md space-y-4">
+      <h2 class="text-2xl font-black text-slate-800">
+        পশ্চিমবঙ্গে বিঘা হিসাবের নিয়ম (West Bengal Bigha System)
+      </h2>
+      <p class="text-sm text-slate-700 leading-relaxed">
+        ভারতে বিভিন্ন রাজ্যে বিঘার মান ভিন্ন হয় (যেমন উত্তর প্রদেশে ১ পাকা বিঘা = ২৭,২২৫ বর্গফুট, রাজস্থানে ১ বিঘা = ১৬,১৩৩ বর্গফুট)। কিন্তু পশ্চিমবঙ্গে <strong>১ বিঘা সর্বদা ১৪,৪০০ বর্গফুট</strong> (বা ১৬০০ বর্গগজ)।
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center mt-4">
+        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+          <span class="text-xs text-slate-500 font-semibold block">কাঠা হিসেবে</span>
+          <span class="text-xl font-bold text-slate-800">২০ কাঠা</span>
+        </div>
+        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+          <span class="text-xs text-slate-500 font-semibold block">ছটাক হিসেবে</span>
+          <span class="text-xl font-bold text-slate-800">৩২০ ছটাক</span>
+        </div>
+        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+          <span class="text-xs text-slate-500 font-semibold block">শতক হিসেবে</span>
+          <span class="text-xl font-bold text-slate-800">৩৩.০৫৮ শতক</span>
+        </div>
+      </div>
+    </section>
+
+    <ConversionTable />
+    <FaqSection />
+  </div>
+</Layout>

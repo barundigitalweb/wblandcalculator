@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MultiUnitConverter from '../components/MultiUnitConverter';
+import ConversionTable from '../components/ConversionTable.astro';
+import FaqSection from '../components/FaqSection.astro';
+---
+
+<Layout
+  title="1 Chatak in Square Feet (West Bengal) | ১ ছটাক = কত বর্গফুট?"
+  description="পশ্চিমবঙ্গে ১ ছটাক সমান ৪৫ বর্গফুট (1 Chatak = 45 Sq Ft) এবং ২০ গণ্ডা। ছটাক থেকে স্কয়ার ফিট, কাঠা ও শতকের রূপান্তর ক্যালকুলেটর।"
+  keywords="1 chatak in square feet, 1 chatak to sq ft, 1 chatak koto square feet west bengal, chatak to katha, 1 chatak koto ganda"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+    <div class="text-center max-w-3xl mx-auto space-y-3">
+      <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">
+        পশ্চিমবঙ্গ ছটাক পরিমাপ
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">
+        ১ ছটাক = <span class="text-emerald-700">৪৫ বর্গফুট</span> (45 Sq Ft)
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+        ১ কাঠাকে ১৬ ভাগে ভাগ করলে প্রতি ভাগকে বলা হয় ১ ছটাক। ছটাক থেকে স্কয়ার ফিট বা কাঠার সঠিক হিসাব করুন।
+      </p>
+    </div>
+
+    <MultiUnitConverter client:load initialUnit="chatak" initialValue={1} featuredTitle="ছটাক থেকে স্কয়ার ফিট কনভার্টার (Chatak to Sq Ft)" />
+
+    <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-md space-y-4">
+      <h2 class="text-2xl font-black text-slate-800">
+        ছটাক এবং ক্ষুদ্রতম অংশের হিসাব (Chatak, Ganda, Kora in West Bengal)
+      </h2>
+      <p class="text-sm text-slate-700 leading-relaxed">
+        দলিল লেখার সময় কাঠার চেয়ে ছোট যেকোনো পরিমাণ জমি ছটাকে লেখা হয়। ছটাকের হিসাব নিচে দেওয়া হলো:
+      </p>
+      <ul class="list-disc pl-5 space-y-2 text-sm text-slate-700">
+        <li><strong>১ ছটাক = ৪৫ বর্গফুট</strong> (বা ৪.১৮ বর্গমিটার)</li>
+        <li><strong>১৬ ছটাক = ১ কাঠা</strong> = ৭২০ বর্গফুট</li>
+        <li><strong>১ ছটাক = ২০ গণ্ডা</strong> (প্রতি গণ্ডা = ২.২৫ বর্গফুট)</li>
+        <li><strong>১ গণ্ডা = ৪ কড়া</strong> (প্রতি কড়া = ০.৫৬২৫ বর্গফুট)</li>
+      </ul>
+    </section>
+
+    <ConversionTable />
+    <FaqSection />
+  </div>
+</Layout>

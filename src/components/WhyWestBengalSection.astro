@@ -1,0 +1,55 @@
+---
+// Component highlighting the fact-check on West Bengal Katha measurement
+import { AlertTriangle, CheckCircle2, BookOpen } from 'lucide-react';
+---
+
+<div class="bg-gradient-to-br from-amber-50 via-white to-emerald-50 border-2 border-emerald-300/80 rounded-2xl p-6 sm:p-8 shadow-sm">
+  <div class="flex items-start gap-4">
+    <div class="p-3 bg-emerald-600 text-white rounded-xl shrink-0 mt-1 hidden sm:block">
+      <BookOpen class="w-6 h-6" />
+    </div>
+    <div class="space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300">
+        <AlertTriangle class="w-3.5 h-3.5 text-amber-700" />
+        গুরুত্বপূর্ণ সতর্কতা: ইন্টারনেটের ভুয়ো ও ভুল তথ্য থেকে সাবধান
+      </div>
+
+      <h3 class="text-xl sm:text-2xl font-black text-slate-900">
+        পশ্চিমবঙ্গে ১ কাঠা = ৭২০ বর্গফুট, ২৮৮০ বা ১৩৬১ বর্গফুট নয়!
+      </h3>
+
+      <div class="prose prose-slate max-w-none text-slate-700 text-sm leading-relaxed space-y-3">
+        <p>
+          অনেকেই ইন্টারনেটে বা কিছু জাতীয় স্তরের বড় রিয়েল এস্টেট ওয়েবসাইটে সার্চ করে দেখতে পান <strong>"১ কাঠা = ২৮৮০ বর্গফুট"</strong> বা <strong>"১৩৬১ বর্গফুট"</strong> লেখা রয়েছে। এটি একটি <strong>মারাত্মক ভুল ও বিভ্রান্তিকর তথ্য!</strong>
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 my-3">
+          <div class="bg-white p-3.5 rounded-xl border-2 border-emerald-400 shadow-xs">
+            <span class="text-xs font-bold text-emerald-800 uppercase block">পশ্চিমবঙ্গ (West Bengal) 👑</span>
+            <span class="text-lg font-black text-emerald-950">১ কাঠা = ৭২০ Sq Ft</span>
+            <p class="text-[11px] text-slate-500 mt-1">১৬ ছটাক $\times$ ৪৫ বর্গফুট = ৭২০ বর্গফুট (১ বিঘা = ২০ কাঠা)</p>
+          </div>
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200">
+            <span class="text-xs font-bold text-slate-500 uppercase block">আসাম (Assam)</span>
+            <span class="text-lg font-bold text-slate-700">১ কাঠা = ২৮৮০ Sq Ft</span>
+            <p class="text-[11px] text-slate-400 mt-1">আসামে ১ বিঘা = ৫ কাঠা (১৪,৪০০ ÷ ৫ = ২৮৮০ sq ft)</p>
+          </div>
+          <div class="bg-white p-3.5 rounded-xl border border-slate-200">
+            <span class="text-xs font-bold text-slate-500 uppercase block">বিহার ও ঝাড়খণ্ড</span>
+            <span class="text-lg font-bold text-slate-700">১ কাঠা ≈ ১৩৬১.২৫ Sq Ft</span>
+            <p class="text-[11px] text-slate-400 mt-1">বিহারে ১ কাঠা = ২০ ধুর (লাগির মাপ অনুযায়ী পরিবর্তিত হয়)</p>
+          </div>
+        </div>
+
+        <p>
+          অনেক সফটওয়্যার কোম্পানি আসামের ফর্মুলা কপি করে পশ্চিমবঙ্গের পেজে বসিয়ে দেয়। কিন্তু <strong>পশ্চিমবঙ্গ সরকারের ভূমি ও ভূমি সংস্কার দপ্তর (Banglarbhumi)</strong> এবং সমস্ত সাব-রেজিস্ট্রার অফিসের দলিল অনুযায়ী পশ্চিমবঙ্গে প্রামাণ্য হিসাব হলো: <strong>১ কাঠা = ৭২০ বর্গফুট</strong> এবং <strong>১ ছটাক = ৪৫ বর্গফুট</strong>।
+        </p>
+      </div>
+
+      <div class="flex items-center gap-2 pt-2 text-xs font-bold text-emerald-800">
+        <CheckCircle2 class="w-4 h-4 text-emerald-600" />
+        <span>wblandcalculator.com শুধুমাত্র পশ্চিমবঙ্গের সঠিক ও প্রামাণ্য সরকারি নিয়ম মেনে কাজ করে।</span>
+      </div>
+    </div>
+  </div>
+</div>

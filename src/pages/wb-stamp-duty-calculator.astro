@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+import StampDutyCalculator from '../components/StampDutyCalculator';
+import FaqSection from '../components/FaqSection.astro';
+---
+
+<Layout
+  title="West Bengal Stamp Duty & Registration Fees Calculator | দলিল রেজিস্ট্রি খরচ"
+  description="পশ্চিমবঙ্গে ফ্ল্যাট ও জমি রেজিস্ট্রি খরচের অনলাইন ক্যালকুলেটর। পঞ্চায়েত ও পুরসভা এলাকা অনুযায়ী ৫%-৬% স্ট্যাম্প ডিউটি, ১% রেজিস্ট্রেশন ফি এবং মহিলা ছাড়ের হিসাব।"
+  keywords="west bengal stamp duty calculator, wb property registration charges, flat registry charges in kolkata, west bengal land registration fee calculator"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+    <div class="text-center max-w-3xl mx-auto space-y-3">
+      <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">
+        পশ্চিমবঙ্গ আইজিআর সার্কুলার অনুযায়ী
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">
+        পশ্চিমবঙ্গ <span class="text-emerald-700">রেজিস্ট্রি খরচ</span> ও স্ট্যাম্প ডিউটি
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+        জমি বা ফ্ল্যাটের আনুমানিক বাজারমূল্য লিখুন—মুহূর্তেই জেনে নিন কত টাকা স্ট্যাম্প ডিউটি ও সরকারি ফি লাগবে।
+      </p>
+    </div>
+
+    <StampDutyCalculator client:load />
+
+    <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-md space-y-6">
+      <h2 class="text-2xl font-black text-slate-800">
+        পশ্চিমবঙ্গে সম্পত্তি রেজিস্ট্রি ফির নিয়মাবলী (West Bengal Registration Rules)
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-700">
+        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+          <h3 class="font-bold text-slate-900">১. গ্রাম পঞ্চায়েত এলাকা (Panchayat Areas):</h3>
+          <p>
+            সাধারণ সম্পত্তির বাজারমূল্যের ওপর <strong>৫% স্ট্যাম্প ডিউটি</strong> এবং <strong>১% রেজিস্ট্রেশন ফি</strong> (মোট ৬%) সরকারি কোষাগারে জমা দিতে হয়।
+          </p>
+        </div>
+
+        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+          <h3 class="font-bold text-slate-900">২. পৌরসভা ও কর্পোরেশন এলাকা (Urban / Municipality):</h3>
+          <p>
+            কলকাতা কর্পোরেশন, হাওড়া, বিধাননগর বা অন্যান্য পুরসভা এলাকায় <strong>৬% স্ট্যাম্প ডিউটি</strong> এবং <strong>১% রেজিস্ট্রেশন ফি</strong> (মোট ৭%) প্রযোজ্য।
+          </p>
+        </div>
+      </div>
+
+      <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-200 text-sm text-emerald-900">
+        <strong>💡 মহিলা ক্রেতাদের জন্য বিশেষ সুবিধা:</strong> সম্পত্তি যদি শুধুমাত্র কোনো মহিলার নামে বা যৌথভাবে কোনো মহিলার সাথে কেনা হয়, তবে স্ট্যাম্প ডিউটির ক্ষেত্রে রাজ্য সরকার <strong>১% ছাড় (Rebate)</strong> প্রদান করে।
+      </div>
+    </section>
+
+    <FaqSection />
+  </div>
+</Layout>

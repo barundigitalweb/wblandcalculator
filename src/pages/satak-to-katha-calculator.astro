@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MultiUnitConverter from '../components/MultiUnitConverter';
+import FractionalBreakdown from '../components/FractionalBreakdown';
+import ConversionTable from '../components/ConversionTable.astro';
+import FaqSection from '../components/FaqSection.astro';
+---
+
+<Layout
+  title="1 Satak to Katha Calculator (West Bengal) | ১ শতক = কত কাঠা?"
+  description="পশ্চিমবঙ্গে ১ শতক (Decimal) সমান ০.৬০৫ কাঠা এবং ১ কাঠা সমান ১.৬৫২৮ শতক। শতক থেকে কাঠা, ছটাক এবং স্কয়ার ফিটের নিখুঁত হিসাব ক্যালকুলেটর।"
+  keywords="1 satak to katha in west bengal, 1 decimal to katha, satak to katha calculator, 1 katha koto satak, decimal to square feet west bengal"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+    <div class="text-center max-w-3xl mx-auto space-y-3">
+      <div class="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">
+        সরকারি খতিয়ান ও পর্চা রূপান্তর
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">
+        ১ শতক = <span class="text-emerald-700">০.৬০৫ কাঠা</span> (৪৩৫.৬ বর্গফুট)
+      </h1>
+      <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+        বাংলার ভূমি পর্চায় লেখা শতক বা ডেসিমেলকে সহজে কাঠা, ছটাক ও বর্গফুটে রূপান্তর করুন।
+      </p>
+    </div>
+
+    {/* Featured Converter with Satak Preset */}
+    <MultiUnitConverter client:load initialUnit="satak" initialValue={1} featuredTitle="শতক / ডেসিমেল থেকে কাঠা কনভার্টার (Satak to Katha)" />
+
+    <FractionalBreakdown client:visible />
+
+    <section class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/80 shadow-md space-y-6">
+      <h2 class="text-2xl font-black text-slate-800">
+        শতক ও কাঠার মধ্যে সম্পর্ক (Satak vs Katha Calculation in WB)
+      </h2>
+      <div class="prose prose-slate max-w-none text-slate-700 text-sm leading-relaxed space-y-3">
+        <p>
+          পশ্চিমবঙ্গের জমি রেজিস্ট্রি অফিসে এবং রাজস্ব রেকর্ডে (ROR) জমির পরিমাপ মূলত দুইভাবে দেখা যায়:
+        </p>
+        <ol class="list-decimal pl-5 space-y-2">
+          <li><strong>সরকারি পর্চা ও খতিয়ানে (Banglarbhumi Record):</strong> জমির পরিমাণ সবসময় <em>একর এবং শতকে</em> লেখা থাকে (যেমন: ০.০৫০০ একর = ৫ শতক)।</li>
+          <li><strong>সাধারণ কেনাবেচায় (Local Market):</strong> স্থানীয় মানুষ এবং আমিনের কাছে হিসাব চলে <em>কাঠা ও ছটাকে</em>।</li>
+        </ol>
+        <p>
+          তাই যখন আপনার পর্চায় লেখা থাকে <strong>১০ শতক</strong>, তার মানে হলো: ১০ × ৪৩৫.৬ = ৪,৩৫৬ বর্গফুট। আর কাঠা হিসেবে: ৪,৩৫৬ ÷ ৭২০ = <strong>৬ কাঠা ০ ছটাক ৩৬ বর্গফুট (বা ৬.০৫ কাঠা)</strong>।
+        </p>
+      </div>
+    </section>
+
+    <ConversionTable />
+    <FaqSection />
+  </div>
+</Layout>

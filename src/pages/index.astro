@@ -1,0 +1,164 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MultiUnitConverter from '../components/MultiUnitConverter';
+import IrregularPlotCalculator from '../components/IrregularPlotCalculator';
+import FractionalBreakdown from '../components/FractionalBreakdown';
+import StampDutyCalculator from '../components/StampDutyCalculator';
+import ConversionTable from '../components/ConversionTable.astro';
+import WhyWestBengalSection from '../components/WhyWestBengalSection.astro';
+import FaqSection from '../components/FaqSection.astro';
+import { ShieldCheck, Zap, Sparkles, CheckCircle2 } from 'lucide-react';
+---
+
+<Layout
+  title="West Bengal Land & Amin Calculator | ১ কাঠা = ৭২০ বর্গফুট, শতক, বিঘা পরিমাপ"
+  description="পশ্চিমবঙ্গের ১০০% নির্ভুল ভূমি পরিমাপক টুল। কাঠা থেকে বর্গফুট (১ কাঠা = ৭২০ sq ft), শতক থেকে কাঠা, বিঘা, ছটাক এবং আমিনদের জন্য বিষমবাহু জমির হিরন ফর্মুলা ক্যালকুলেটর।"
+>
+  {/* Hero Section */}
+  <section class="relative pt-10 pb-8 sm:pt-14 sm:pb-12 bg-gradient-to-b from-emerald-50/70 via-slate-100/50 to-slate-100/70 border-b border-slate-200/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+      <div class="inline-flex items-center gap-2 bg-emerald-100 border border-emerald-300 text-emerald-900 px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold shadow-xs">
+        <Sparkles class="w-4 h-4 text-emerald-700" />
+        <span>পশ্চিমবঙ্গ সরকারের প্রামাণ্য হিসাব: ১ কাঠা = ৭২০ বর্গফুট</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-tight sm:leading-none">
+        পশ্চিমবঙ্গ <span class="text-emerald-700">ভূমি ও আমিন</span> ক্যালকুলেটর
+      </h1>
+
+      <p class="max-w-3xl mx-auto text-slate-600 text-base sm:text-lg leading-relaxed">
+        আমিন, দলিল লেখক, সাইবার ক্যাফে ও সাধারণ মানুষের জন্য ১০০% নির্ভুল ডিজিটাল জমি পরিমাপক। শতক, কাঠা, ছটাক, বিঘা, বর্গফুট এবং আঁকাবাঁকা জমির বিষমবাহু হিরন ফর্মুলা পরিমাপ।
+      </p>
+
+      {/* Trust Badges */}
+      <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-8 pt-2 text-xs sm:text-sm text-slate-600 font-semibold">
+        <div class="flex items-center gap-1.5">
+          <CheckCircle2 class="w-4 h-4 text-emerald-600" />
+          <span>১ কাঠা = ৭২০ Sq Ft</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <CheckCircle2 class="w-4 h-4 text-emerald-600" />
+          <span>১ শতক = ৪৩৫.৬ Sq Ft</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <CheckCircle2 class="w-4 h-4 text-emerald-600" />
+          <span>হিরন ফর্মুলা (Heron's Formula)</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <CheckCircle2 class="w-4 h-4 text-emerald-600" />
+          <span>১০০% ফ্রি ও অফলাইন</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* Main Container */}
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+    {/* Tool 1: Multi Unit Converter */}
+    <section id="converter">
+      <MultiUnitConverter client:load />
+    </section>
+
+    {/* Tool 2: Fractional Breakdown */}
+    <section id="breakdown">
+      <FractionalBreakdown client:visible />
+    </section>
+
+    {/* Tool 3: Irregular Plot Calculator (Heron's Formula) */}
+    <section id="irregular-plot">
+      <IrregularPlotCalculator client:visible />
+    </section>
+
+    {/* Fact Check: Why West Bengal 1 Katha = 720 Sq Ft */}
+    <section id="fact-check">
+      <WhyWestBengalSection />
+    </section>
+
+    {/* Tool 4: Stamp Duty & Registration Estimator */}
+    <section id="stamp-duty">
+      <StampDutyCalculator client:visible />
+    </section>
+
+    {/* Official Conversion Table */}
+    <section id="conversion-chart">
+      <ConversionTable />
+    </section>
+
+    {/* In-Depth Educational Articles for High SEO & AdSense E-E-A-T */}
+    <section class="bg-white rounded-2xl shadow-lg border border-slate-200/80 p-6 sm:p-10 space-y-8">
+      <div class="max-w-3xl">
+        <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full uppercase tracking-wider">
+          ভূমি সহায়িকা গাইড
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-800 mt-2">
+          পশ্চিমবঙ্গে জমি পরিমাপের ইতিহাস ও প্রামাণ্য একক বিধি
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-slate-700 text-sm leading-relaxed">
+        <div class="space-y-4">
+          <h3 class="text-lg font-bold text-slate-900 border-b pb-2">
+            ১. কাঠা, ছটাক ও বিঘার প্রামাণ্য সরকারি নিয়ম
+          </h3>
+          <p>
+            পশ্চিমবঙ্গ ভূমি সংস্কার আইন (West Bengal Land Reforms Act, 1955) এবং ব্রিটিশ আমলের রাজস্ব জরিপ ব্যবস্থা অনুযায়ী পশ্চিমবঙ্গে জমি পরিমাপের মূল একক হলো <strong>বিঘা, কাঠা ও ছটাক</strong>।
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-slate-600">
+            <li><strong>১ ছটাক = ৪৫ বর্গফুট</strong> (বা ৪.১৮ বর্গমিটার)</li>
+            <li><strong>১৬ ছটাক = ১ কাঠা = ৭২০ বর্গফুট</strong> (বা ৬৬.৮৯ বর্গমিটার)</li>
+            <li><strong>২০ কাঠা = ১ বিঘা = ১৪,৪০০ বর্গফুট</strong> (বা ৩২০ ছটাক)</li>
+            <li><strong>৩ বিঘা ৮ ছটাক = ১ একর = ৪৩,৫৬০ বর্গফুট</strong></li>
+          </ul>
+          <p>
+            বর্তমানে শহরাঞ্চল ও উপনগরীতে (যেমন কলকাতা, সল্টলেক, রাজারহাট, হাওড়া) জমি ও ফ্ল্যাট কেনাবেচায় বর্গফুট এবং কাঠা প্রধান ভিত্তি হিসেবে ব্যবহৃত হয়।
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <h3 class="text-lg font-bold text-slate-900 border-b pb-2">
+            ২. শতক বা ডেসিমেল (Decimal) কী এবং এটি কীভাবে হিসাব করা হয়?
+          </h3>
+          <p>
+            সরকারি খতিয়ান, পর্চা (Banglarbhumi Khatian/Porcha) এবং ডিজিটাল রাজস্ব রেকর্ডে জমির পরিমাণ সবসময় <strong>একর এবং ডেসিমেলে</strong> প্রকাশ করা হয়।
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-slate-600">
+            <li>১ একরকে ১০০ ভাগে ভাগ করলে প্রতি ভাগকে বলা হয় <strong>১ শতক বা ১ ডেসিমেল</strong>।</li>
+            <li>যেহেতু ১ একর = ৪৩,৫৬০ বর্গফুট, তাই <strong>১ শতক = ৪৩৫.৬ বর্গফুট</strong>।</li>
+            <li>কাঠার সাথে সম্পর্ক: ৪৩৫.৬ ÷ ৭২০ = <strong>০.৬০৫ কাঠা</strong> (বা প্রায় ৯.৬৮ ছটাক)।</li>
+            <li>১ কাঠা জমি কিনতে গেলে তা সরকারি রেকর্ডে প্রায় <strong>১.৬৫২৮ শতক</strong> হিসেবে নথিভুক্ত হয়।</li>
+          </ul>
+        </div>
+
+        <div class="space-y-4">
+          <h3 class="text-lg font-bold text-slate-900 border-b pb-2">
+            ৩. সিএস, আরএস এবং এলআর রেকর্ডে পুরোনো গণ্ডা-কড়ার হিসাব
+          </h3>
+          <p>
+            ব্রিটিশ আমলের সিএস (Cadastral Survey) বা আরএস (Revisional Survey) খতিয়ানে আনা-গণ্ডা-কড়া-ক্রান্তি-তিল পদ্ধতিতে জমির অংশ বণ্টন করা হতো।
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-slate-600">
+            <li>১ ছটাক = ২০ গণ্ডা (প্রতি গণ্ডা = ২.২৫ বর্গফুট)</li>
+            <li>১ গণ্ডা = ৪ কড়া (প্রতি কড়া = ০.৫৬২৫ বর্গফুট)</li>
+            <li>১ কড়া = ৩ ক্রান্তি (প্রতি ক্রান্তি = ০.১৮৭৫ বর্গফুট)</li>
+            <li>১ ক্রান্তি = ২০ তিল (প্রতি তিল = ০.০০৯৩৭৫ বর্গফুট)</li>
+          </ul>
+        </div>
+
+        <div class="space-y-4">
+          <h3 class="text-lg font-bold text-slate-900 border-b pb-2">
+            ৪. কেন সাধারণ গড় পদ্ধতিতে জমি মাপলে আমিনদের সাথে বিরোধ বাধে?
+          </h3>
+          <p>
+            অনেক অদক্ষ মানুষ জমির মুখোমুখি দুই বাহু যোগ করে ২ দিয়ে ভাগ করেন (উত্তর + দক্ষিণ ÷ ২) এবং অপর দুই বাহু দিয়ে গুণ করেন। 
+          </p>
+          <p>
+            গণিতবিদদের মতে, যেকোনো বিষমবাহু চতুর্ভুজের ক্ষেত্রে এই গড় পদ্ধতিতে ক্ষেত্রফল সবসময় প্রকৃত ক্ষেত্রফলের চেয়ে বেশি আসে। ফলে জমি ক্রেতা বা বিক্রেতা আর্থিকভাবে প্রতারিত হন। সার্টিফায়েড আমিনরা সবসময় জমিতে একটি কোনাকুনি ফিতে টেনে (কর্ণ / Diagonal) দুটি পৃথক ত্রিভুজ বানিয়ে <strong>হিরন ফর্মুলা</strong> দিয়ে মাপেন।
+          </p>
+        </div>
+      </div>
+    </section>
+
+    {/* Frequently Asked Questions */}
+    <FaqSection />
+  </div>
+</Layout>
