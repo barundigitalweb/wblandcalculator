@@ -62,18 +62,12 @@
       </div>
 
       {/* Mobile Menu Button */}
-      <div class="flex items-center gap-2 md:hidden">
-        <a
-          href="/irregular-land-calculator"
-          class="bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold px-2.5 py-1.5 rounded-lg transition"
-        >
-          আমিন মাপ
-        </a>
+      <div class="flex items-center md:hidden">
         <button
           id="mobile-menu-btn"
           type="button"
           aria-label="মেনু খুলুন"
-          class="p-2 text-slate-600 hover:text-emerald-700 hover:bg-slate-100 rounded-lg transition"
+          class="p-2 text-slate-700 hover:text-emerald-700 hover:bg-slate-100 rounded-xl transition"
         >
           <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -87,12 +81,23 @@
   </div>
 
   {/* Mobile Navigation Dropdown */}
-  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 py-3 px-4 space-y-1 bg-white shadow-lg">
+  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 py-3 px-4 space-y-1.5 bg-white shadow-xl">
+    {/* Featured Action Item */}
+    <a
+      href="/irregular-land-calculator"
+      class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-bold bg-emerald-700 text-white shadow-sm hover:bg-emerald-800 transition"
+    >
+      <span class="flex items-center gap-2">
+        <span>📐</span>
+        <span>আমিন ক্যালকুলেটর (বিষমবাহু জমি)</span>
+      </span>
+      <span class="text-[11px] bg-emerald-900/60 text-emerald-100 px-2 py-0.5 rounded font-semibold">
+        হিরন ফর্মুলা →
+      </span>
+    </a>
+
     <a href="/" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-emerald-700 hover:bg-emerald-50">
       কনভার্টার (সকল একক)
-    </a>
-    <a href="/irregular-land-calculator" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-emerald-700 hover:bg-emerald-50">
-      আঁকাবাঁকা জমির মাপ (Heron's Formula)
     </a>
     <a href="/katha-to-sqft-west-bengal" class="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 hover:text-emerald-700 hover:bg-emerald-50">
       কাঠা ↔ স্কয়ার ফিট (১ কাঠা = ৭২০ sq ft)
