@@ -51,7 +51,7 @@ export default function FractionalBreakdown() {
               Sq Ft
             </span>
           </div>
-          <div className="flex gap-2 mt-2">
+          <div className="flex flex-wrap gap-2 mt-2">
             {[720, 1440, 2160, 3850, 7200].map((preset) => (
               <button
                 key={preset}

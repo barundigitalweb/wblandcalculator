@@ -156,7 +156,7 @@ export default function MultiUnitConverter({
           <h3 className="text-sm font-bold text-slate-600 uppercase tracking-wider mb-3">
             সব এককে সমপরিমাণ মান (Equivalent Values in All Units):
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3.5">
             {WB_LAND_UNITS.map((unit) => {
               const val = conversions[unit.id] ?? 0;
               const formattedVal = val >= 1000 ? val.toLocaleString('en-IN', { maximumFractionDigits: 4 }) : (Math.round(val * 10000) / 10000).toString();
@@ -168,7 +168,7 @@ export default function MultiUnitConverter({
                   onClick={() => {
                     setActiveUnit(unit.id);
                   }}
-                  className={`p-4 rounded-xl border transition cursor-pointer relative group ${
+                  className={`p-3 sm:p-4 rounded-xl border transition cursor-pointer relative group ${
                     isSelected
                       ? 'bg-emerald-600 text-white border-emerald-700 shadow-md ring-2 ring-emerald-600/30'
                       : 'bg-white hover:bg-slate-50 border-slate-200 text-slate-800 hover:border-emerald-300'
@@ -197,11 +197,11 @@ export default function MultiUnitConverter({
                       )}
                     </button>
                   </div>
-                  <div className="text-xl font-extrabold truncate tracking-tight">
+                  <div className="text-lg sm:text-xl font-extrabold truncate tracking-tight">
                     {formattedVal}
                   </div>
                   <div
-                    className={`text-[11px] mt-1 truncate ${
+                    className={`text-[10px] sm:text-[11px] mt-0.5 truncate ${
                       isSelected ? 'text-emerald-100' : 'text-slate-400'
                     }`}
                   >

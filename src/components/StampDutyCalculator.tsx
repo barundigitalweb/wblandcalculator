@@ -47,7 +47,7 @@ export default function StampDutyCalculator() {
                 className="w-full text-xl font-bold bg-white border border-slate-300 rounded-lg pl-8 pr-3 py-2.5 focus:border-emerald-600 outline-none"
               />
             </div>
-            <div className="flex gap-2 mt-2">
+            <div className="flex flex-wrap gap-2 mt-2">
               {[1000000, 2500000, 5000000, 10000000].map((v) => (
                 <button
                   key={v}
