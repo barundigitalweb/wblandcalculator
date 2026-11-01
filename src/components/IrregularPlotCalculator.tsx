@@ -149,11 +149,13 @@ export default function IrregularPlotCalculator() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {/* Side A */}
             <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
-              <label className="block text-xs font-bold text-slate-600 mb-1">
+              <label htmlFor="irregular-side-a" className="block text-xs font-bold text-slate-700 mb-1">
                 বাহু ১ / উত্তর (North Side)
               </label>
               <div className="flex items-center gap-1">
                 <input
+                  id="irregular-side-a"
+                  aria-label="বাহু ১ উত্তর পরিমাপ"
                   type="number"
                   min="0"
                   step="any"
@@ -162,17 +164,19 @@ export default function IrregularPlotCalculator() {
                   className="w-full text-xl font-bold bg-white border border-slate-300 rounded-lg p-2.5 focus:border-emerald-600 outline-none"
                   placeholder="যেমন: 50"
                 />
-                <span className="text-xs font-semibold text-slate-400">ft</span>
+                <span className="text-xs font-semibold text-slate-600">ft</span>
               </div>
             </div>
 
             {/* Side B */}
             <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
-              <label className="block text-xs font-bold text-slate-600 mb-1">
+              <label htmlFor="irregular-side-b" className="block text-xs font-bold text-slate-700 mb-1">
                 বাহু ২ / পূর্ব (East Side)
               </label>
               <div className="flex items-center gap-1">
                 <input
+                  id="irregular-side-b"
+                  aria-label="বাহু ২ পূর্ব পরিমাপ"
                   type="number"
                   min="0"
                   step="any"
@@ -181,17 +185,19 @@ export default function IrregularPlotCalculator() {
                   className="w-full text-xl font-bold bg-white border border-slate-300 rounded-lg p-2.5 focus:border-emerald-600 outline-none"
                   placeholder="যেমন: 40"
                 />
-                <span className="text-xs font-semibold text-slate-400">ft</span>
+                <span className="text-xs font-semibold text-slate-600">ft</span>
               </div>
             </div>
 
             {/* Side C */}
             <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
-              <label className="block text-xs font-bold text-slate-600 mb-1">
+              <label htmlFor="irregular-side-c" className="block text-xs font-bold text-slate-700 mb-1">
                 বাহু ৩ / দক্ষিণ (South Side)
               </label>
               <div className="flex items-center gap-1">
                 <input
+                  id="irregular-side-c"
+                  aria-label="বাহু ৩ দক্ষিণ পরিমাপ"
                   type="number"
                   min="0"
                   step="any"
@@ -200,17 +206,19 @@ export default function IrregularPlotCalculator() {
                   className="w-full text-xl font-bold bg-white border border-slate-300 rounded-lg p-2.5 focus:border-emerald-600 outline-none"
                   placeholder="যেমন: 55"
                 />
-                <span className="text-xs font-semibold text-slate-400">ft</span>
+                <span className="text-xs font-semibold text-slate-600">ft</span>
               </div>
             </div>
 
             {/* Side D */}
             <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
-              <label className="block text-xs font-bold text-slate-600 mb-1">
+              <label htmlFor="irregular-side-d" className="block text-xs font-bold text-slate-700 mb-1">
                 বাহু ৪ / পশ্চিম (West Side)
               </label>
               <div className="flex items-center gap-1">
                 <input
+                  id="irregular-side-d"
+                  aria-label="বাহু ৪ পশ্চিম পরিমাপ"
                   type="number"
                   min="0"
                   step="any"
@@ -219,17 +227,19 @@ export default function IrregularPlotCalculator() {
                   className="w-full text-xl font-bold bg-white border border-slate-300 rounded-lg p-2.5 focus:border-emerald-600 outline-none"
                   placeholder="যেমন: 42"
                 />
-                <span className="text-xs font-semibold text-slate-400">ft</span>
+                <span className="text-xs font-semibold text-slate-600">ft</span>
               </div>
             </div>
 
             {/* Diagonal E */}
             <div className="bg-amber-50 p-4 rounded-xl border-2 border-amber-300">
-              <label className="block text-xs font-bold text-amber-900 mb-1">
+              <label htmlFor="irregular-diagonal" className="block text-xs font-bold text-amber-900 mb-1">
                 কোনাকুনি কর্ণ (NW ↔ SE Diagonal)
               </label>
               <div className="flex items-center gap-1">
                 <input
+                  id="irregular-diagonal"
+                  aria-label="কোনাকুনি কর্ণ পরিমাপ"
                   type="number"
                   min="0"
                   step="any"
@@ -238,7 +248,7 @@ export default function IrregularPlotCalculator() {
                   className="w-full text-xl font-black bg-white border border-amber-400 rounded-lg p-2.5 focus:border-amber-600 outline-none text-amber-950"
                   placeholder="যেমন: 65"
                 />
-                <span className="text-xs font-bold text-amber-600">ft</span>
+                <span className="text-xs font-bold text-amber-800">ft</span>
               </div>
             </div>
           </div>
@@ -249,10 +259,10 @@ export default function IrregularPlotCalculator() {
           {/* Canvas Box */}
           <div className="lg:col-span-5 bg-slate-50 border border-slate-200 rounded-2xl p-4 flex flex-col items-center">
             <div className="w-full flex items-center justify-between mb-2 px-1">
-              <span className="text-xs font-bold text-slate-500 uppercase">
+              <span className="text-xs font-bold text-slate-700 uppercase">
                 জমির ভিজ্যুয়াল নকশা (Visual Plot Map)
               </span>
-              <span className="text-[11px] text-emerald-700 bg-emerald-100 font-semibold px-2 py-0.5 rounded">
+              <span className="text-[11px] text-emerald-800 bg-emerald-100 font-semibold px-2 py-0.5 rounded">
                 ২টি ত্রিভুজ পদ্ধতি
               </span>
             </div>
@@ -260,8 +270,12 @@ export default function IrregularPlotCalculator() {
               ref={canvasRef}
               width={380}
               height={260}
+              role="img"
+              aria-label="আমিন বিষমবাহু জমির নকশা চিত্র"
               className="w-full max-w-[380px] bg-white rounded-xl shadow-inner border border-slate-200"
-            />
+            >
+              <p>আমিন বিষমবাহু জমির ভিজ্যুয়াল নকশা</p>
+            </canvas>
             <p className="text-[11px] text-slate-500 text-center mt-2">
               * হলুদ ড্যাশ লাইনটি হলো কোনাকুনি কর্ণ (উত্তর-পশ্চিম থেকে দক্ষিণ-পূর্ব কোণ), যা জমিকে ২টি ত্রিভুজে বিভক্ত করেছে।
             </p>

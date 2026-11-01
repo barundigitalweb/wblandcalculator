@@ -25,7 +25,7 @@ import FaqSection from '../components/FaqSection.astro';
     </div>
 
     {/* Featured Converter with Satak Preset */}
-    <MultiUnitConverter client:load initialUnit="satak" initialValue={1} featuredTitle="শতক / ডেসিমেল থেকে কাঠা কনভার্টার (Satak to Katha)" />
+    <MultiUnitConverter client:idle initialUnit="satak" initialValue={1} featuredTitle="শতক / ডেসিমেল থেকে কাঠা কনভার্টার (Satak to Katha)" />
 
     <FractionalBreakdown client:visible />
 

@@ -21,7 +21,7 @@
               WB
             </span>
           </div>
-          <p class="text-[11px] font-semibold text-slate-400 -mt-1 hidden sm:block">
+          <p class="text-[11px] font-semibold text-slate-500 -mt-1 hidden sm:block">
             পশ্চিমবঙ্গ ভূমি ও আমিন পরিমাপক
           </p>
         </div>
@@ -66,8 +66,11 @@
         <button
           id="mobile-menu-btn"
           type="button"
-          aria-label="মেনু খুলুন"
-          class="p-2 text-slate-700 hover:text-emerald-700 hover:bg-slate-100 rounded-xl transition"
+          aria-label="প্রধান নেভিগেশন মেনু"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-haspopup="true"
+          class="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 text-slate-700 hover:text-emerald-700 hover:bg-slate-100 rounded-xl transition"
         >
           <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -128,8 +131,10 @@
   const cIcon = document.getElementById('close-icon');
 
   btn?.addEventListener('click', () => {
+    const isClosed = menu?.classList.contains('hidden');
     menu?.classList.toggle('hidden');
     hIcon?.classList.toggle('hidden');
     cIcon?.classList.toggle('hidden');
+    btn.setAttribute('aria-expanded', isClosed ? 'true' : 'false');
   });
 </script>

@@ -96,12 +96,14 @@ export default function MultiUnitConverter({
       <div className="p-6 sm:p-8 space-y-6">
         {/* Input Box Row */}
         <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200">
-          <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
+          <label htmlFor="main-converter-input" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
             পরিমাপের মান ও একক নির্বাচন করুন (Enter Value & Select Unit)
           </label>
           <div className="grid grid-cols-1 sm:grid-cols-12 gap-3">
             <div className="sm:col-span-7 relative">
               <input
+                id="main-converter-input"
+                aria-label="পরিমাপের সংখ্যা লিখুন"
                 type="number"
                 min="0"
                 step="any"
@@ -184,10 +186,11 @@ export default function MultiUnitConverter({
                         handleCopy(unit.id, val);
                       }}
                       title="মান কপি করুন"
-                      className={`p-1 rounded-md transition ${
+                      aria-label={`${unit.bengaliName} মান কপি করুন`}
+                      className={`p-1.5 rounded-md transition ${
                         isSelected
                           ? 'hover:bg-emerald-700 text-white'
-                          : 'hover:bg-slate-200 text-slate-400 group-hover:text-slate-600'
+                          : 'hover:bg-slate-200 text-slate-500 hover:text-slate-800'
                       }`}
                     >
                       {copiedUnit === unit.id ? (
@@ -202,7 +205,7 @@ export default function MultiUnitConverter({
                   </div>
                   <div
                     className={`text-[10px] sm:text-[11px] mt-0.5 truncate ${
-                      isSelected ? 'text-emerald-100' : 'text-slate-400'
+                      isSelected ? 'text-emerald-100 font-medium' : 'text-slate-500'
                     }`}
                   >
                     {unit.description}

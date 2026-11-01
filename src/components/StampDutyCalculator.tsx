@@ -32,12 +32,14 @@ export default function StampDutyCalculator() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Market Value Input */}
           <div className="md:col-span-1 bg-slate-50 p-4 rounded-xl border border-slate-200">
-            <label className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">
+            <label htmlFor="stamp-market-value" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
               সম্পত্তি / জমির বাজারমূল্য (Market Value)
             </label>
             <div className="relative">
-              <span className="absolute left-3 top-3 text-slate-400 font-bold">₹</span>
+              <span className="absolute left-3 top-3 text-slate-600 font-bold">₹</span>
               <input
+                id="stamp-market-value"
+                aria-label="সম্পত্তি বা জমির বাজারমূল্য"
                 type="number"
                 min="0"
                 step="10000"
@@ -51,8 +53,9 @@ export default function StampDutyCalculator() {
               {[1000000, 2500000, 5000000, 10000000].map((v) => (
                 <button
                   key={v}
+                  aria-label={`${v / 100000} লাখ টাকা বাজারমূল্য সেট করুন`}
                   onClick={() => setMarketValue(String(v))}
-                  className="text-[11px] bg-white border border-slate-200 hover:border-emerald-400 px-2 py-0.5 rounded transition text-slate-600"
+                  className="text-[11px] bg-white border border-slate-200 hover:border-emerald-400 px-2.5 py-1 rounded transition text-slate-700 font-medium"
                 >
                   ₹{v / 100000}L
                 </button>
@@ -62,12 +65,13 @@ export default function StampDutyCalculator() {
 
           {/* Location Type */}
           <div className="md:col-span-1 bg-slate-50 p-4 rounded-xl border border-slate-200">
-            <label className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">
+            <span className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
               এলাকার ধরন (Property Location)
-            </label>
+            </span>
             <div className="space-y-2">
-              <label className="flex items-center gap-2 p-2 rounded-lg bg-white border border-slate-200 cursor-pointer hover:border-emerald-300 transition">
+              <label htmlFor="area-municipality" className="flex items-center gap-2 p-2 rounded-lg bg-white border border-slate-200 cursor-pointer hover:border-emerald-300 transition">
                 <input
+                  id="area-municipality"
                   type="radio"
                   name="areaType"
                   value="municipality"
@@ -79,8 +83,9 @@ export default function StampDutyCalculator() {
                   পৌরসভা / কর্পোরেশন (Urban)
                 </span>
               </label>
-              <label className="flex items-center gap-2 p-2 rounded-lg bg-white border border-slate-200 cursor-pointer hover:border-emerald-300 transition">
+              <label htmlFor="area-panchayat" className="flex items-center gap-2 p-2 rounded-lg bg-white border border-slate-200 cursor-pointer hover:border-emerald-300 transition">
                 <input
+                  id="area-panchayat"
                   type="radio"
                   name="areaType"
                   value="panchayat"
@@ -97,12 +102,13 @@ export default function StampDutyCalculator() {
 
           {/* Deed Type */}
           <div className="md:col-span-1 bg-slate-50 p-4 rounded-xl border border-slate-200">
-            <label className="block text-xs font-bold text-slate-600 uppercase tracking-wider mb-2">
+            <span className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
               দলিলের ধরন (Deed Type)
-            </label>
+            </span>
             <div className="space-y-2">
-              <label className="flex items-center gap-2 p-2 rounded-lg bg-white border border-slate-200 cursor-pointer hover:border-emerald-300 transition">
+              <label htmlFor="deed-sale" className="flex items-center gap-2 p-2 rounded-lg bg-white border border-slate-200 cursor-pointer hover:border-emerald-300 transition">
                 <input
+                  id="deed-sale"
                   type="radio"
                   name="deedType"
                   value="sale"
@@ -114,8 +120,9 @@ export default function StampDutyCalculator() {
                   বিক্রয় দলিল / সাফ-কবলা (Sale Deed)
                 </span>
               </label>
-              <label className="flex items-center gap-2 p-2 rounded-lg bg-white border border-slate-200 cursor-pointer hover:border-emerald-300 transition">
+              <label htmlFor="deed-gift" className="flex items-center gap-2 p-2 rounded-lg bg-white border border-slate-200 cursor-pointer hover:border-emerald-300 transition">
                 <input
+                  id="deed-gift"
                   type="radio"
                   name="deedType"
                   value="gift_family"
