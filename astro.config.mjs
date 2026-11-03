@@ -5,6 +5,7 @@ import react from '@astrojs/react';
 export default defineConfig({
   site: 'https://wblandcalculator.com',
   output: 'static',
+  trailingSlash: 'always',
   integrations: [
     tailwind(),
     react()
