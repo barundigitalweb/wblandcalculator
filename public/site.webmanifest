@@ -1,0 +1,17 @@
+{
+  "name": "WBLandCalculator - পশ্চিমবঙ্গ ভূমি ও আমিন পরিমাপক",
+  "short_name": "WBLand",
+  "description": "পশ্চিমবঙ্গের ১০০% নির্ভুল ডিজিটাল জমি ও আমিন পরিমাপক টুল",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#047857",
+  "theme_color": "#047857",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

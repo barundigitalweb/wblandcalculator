@@ -7,7 +7,7 @@ export default function StampDutyCalculator() {
   const [areaType, setAreaType] = useState<'panchayat' | 'municipality'>('municipality');
   const [deedType, setDeedType] = useState<DeedType>('sale');
 
-  const numVal = parseFloat(marketValue) || 0;
+  const numVal = Math.max(0, parseFloat(marketValue) || 0);
   const result = calculateWBStampDuty(numVal, areaType, deedType);
 
   return (

@@ -6,7 +6,7 @@ export default function FractionalBreakdown() {
   const [sqftInput, setSqftInput] = useState<string>('3850');
   const [copied, setCopied] = useState<boolean>(false);
 
-  const numVal = parseFloat(sqftInput) || 0;
+  const numVal = Math.max(0, parseFloat(sqftInput) || 0);
   const breakdown = getFractionalBreakdown(numVal);
 
   const handleCopy = () => {

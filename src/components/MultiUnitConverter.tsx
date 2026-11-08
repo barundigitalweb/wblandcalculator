@@ -17,7 +17,7 @@ export default function MultiUnitConverter({
   const [inputValue, setInputValue] = useState<string>(String(initialValue));
   const [copiedUnit, setCopiedUnit] = useState<string | null>(null);
 
-  const numVal = parseFloat(inputValue) || 0;
+  const numVal = Math.max(0, parseFloat(inputValue) || 0);
   const conversions = convertLandUnit(numVal, activeUnit);
   const breakdown = getFractionalBreakdown(conversions.sqft);
 
@@ -61,31 +61,36 @@ export default function MultiUnitConverter({
           <span className="text-emerald-200 font-medium">জনপ্রিয় পরিমাপ:</span>
           <button
             onClick={() => handleQuickPreset('katha', 1)}
-            className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 transition font-medium"
+            aria-label="১ কাঠা পরিমাপ সেট করুন"
+            className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 transition font-medium min-h-[36px] flex items-center justify-center"
           >
             ১ কাঠা
           </button>
           <button
             onClick={() => handleQuickPreset('satak', 1)}
-            className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 transition font-medium"
+            aria-label="১ শতক পরিমাপ সেট করুন"
+            className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 transition font-medium min-h-[36px] flex items-center justify-center"
           >
             ১ শতক (Decimal)
           </button>
           <button
             onClick={() => handleQuickPreset('sqft', 1000)}
-            className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 transition font-medium"
+            aria-label="১,০০০ বর্গফুট পরিমাপ সেট করুন"
+            className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 transition font-medium min-h-[36px] flex items-center justify-center"
           >
             ১,০০০ বর্গফুট
           </button>
           <button
             onClick={() => handleQuickPreset('bigha', 1)}
-            className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 transition font-medium"
+            aria-label="১ বিঘা পরিমাপ সেট করুন"
+            className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 transition font-medium min-h-[36px] flex items-center justify-center"
           >
             ১ বিঘা
           </button>
           <button
             onClick={() => handleQuickPreset('chatak', 1)}
-            className="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 transition font-medium"
+            aria-label="১ ছটাক পরিমাপ সেট করুন"
+            className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 transition font-medium min-h-[36px] flex items-center justify-center"
           >
             ১ ছটাক
           </button>
